@@ -3,7 +3,6 @@ import React from 'react';
 import './Sidebar.css';
 import {
   FaHeartbeat,
-  FaSkin,
   FaBrain,
   FaChild,
   FaBone,
@@ -11,13 +10,12 @@ import {
   FaStethoscope,
   FaEye,
   FaTooth,
-  FaEar,
   FaUserMd,
 } from 'react-icons/fa';
 
 const specializations = [
   { name: 'Cardiologist', icon: <FaHeartbeat /> },
-  { name: 'Dermatologist', icon: <FaSkin /> },
+  { name: 'Dermatologist', icon:  <FaUserMd /> },
   { name: 'Neurologist', icon: <FaBrain /> },
   { name: 'Pediatrician', icon: <FaChild /> },
   { name: 'Orthopedic', icon: <FaBone /> },
@@ -26,7 +24,7 @@ const specializations = [
   { name: 'Psychiatrist', icon: <FaUserMd /> },
   { name: 'Ophthalmologist', icon: <FaEye /> },
   { name: 'Dentist', icon: <FaTooth /> },
-  { name: 'ENT Specialist', icon: <FaEar /> },
+  { name: 'ENT Specialist', icon:  <FaUserMd /> },
   { name: 'General Physician', icon: <FaUserMd /> },
   // Add more specializations as needed
 ];
