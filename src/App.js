@@ -1,4 +1,10 @@
 // src/App.js
+/**
+ * Manages state for selected specialization and sidebar visibility.
+ * Handles specialization selection, sidebar toggling, and resets.
+ * Filters doctors based on selected specialization.
+ * Renders the list of doctors and the sidebar.
+ */
 import React, { useState } from 'react';
 import './App.css';
 import DoctorCard from './DoctorCard';

@@ -1,4 +1,8 @@
 // src/Sidebar.js
+/**
+ * Displays a list of specializations with icons.
+ * Handles specialization selection.
+ */
 import React from 'react';
 import './Sidebar.css';
 import {

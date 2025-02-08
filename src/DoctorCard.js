@@ -1,4 +1,8 @@
 // src/DoctorCard.js
+/**
+ * Displays information about each doctor (name, specialization, visitation hours, rating, and image).
+ * Includes a "Book Appointment" button.
+ */
 import React from 'react';
 import './DoctorCard.css';
 
