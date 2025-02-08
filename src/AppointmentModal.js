@@ -2,21 +2,19 @@ import React, { useState } from 'react';
 import './AppointmentModal.css';
 
 function AppointmentModal({ doctor, onClose, onSave }) {
-  const [name, setName] = useState('');
+  const [fullName, setFullName] = useState('');
   const [sex, setSex] = useState('');
   const [age, setAge] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [followUp, setFollowUp] = useState(false);
-  const [appointmentType, setAppointmentType] = useState('');
+  const [appointmentType, setAppointmentType] = useState('NEW');
   const [appointmentTime, setAppointmentTime] = useState('');
 
   const handleSave = () => {
     const appointmentData = {
-      name,
+      fullName,
       sex,
       age,
       phoneNumber,
-      followUp,
       appointmentType,
       appointmentTime,
       doctor,
@@ -29,49 +27,99 @@ function AppointmentModal({ doctor, onClose, onSave }) {
     <div className="modal">
       <div className="modal-content">
         <h2>Book Appointment with {doctor.name}</h2>
-        <label>
-          Name:
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-        </label>
-        <label>
-          Sex:
-          <select value={sex} onChange={(e) => setSex(e.target.value)}>
-            <option value="">Select</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-          </select>
-        </label>
-        <label>
-          Age:
-          <input type="number" value={age} onChange={(e) => setAge(e.target.value)} />
-        </label>
-        <label>
-          Phone Number:
-          <input type="tel" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
-        </label>
-        <label>
-          Is this a follow-up appointment?
-          <input type="checkbox" checked={followUp} onChange={(e) => setFollowUp(e.target.checked)} />
-        </label>
-        {followUp && (
+        <div className="form-row">
           <label>
-            Previous appointment or new consultation:
-            <input type="text" value={appointmentType} onChange={(e) => setAppointmentType(e.target.value)} />
+            Full Name:
+            <input type="text" value={fullName} onChange={(e) => setFullName(e.target.value)} />
           </label>
-        )}
-        <label>
-          Preferred appointment time:
-          <select value={appointmentTime} onChange={(e) => setAppointmentTime(e.target.value)}>
-            <option value="">Select</option>
-            <option value="morning">Morning (8 am - 10 am)</option>
-            <option value="late_morning">Late Morning (10 am - 12 pm)</option>
-            <option value="afternoon">Afternoon (12 pm - 3 pm)</option>
-            <option value="late_afternoon">Late Afternoon (3 pm - 5 pm)</option>
-          </select>
-        </label>
-        <button onClick={handleSave}>Save</button>
-        <button onClick={onClose}>Close</button>
+        </div>
+        <div className="form-row">
+          <label className="inline-label">
+            Sex:
+            <div className="radio-group">
+              <label>
+                <input
+                  type="radio"
+                  value="male"
+                  checked={sex === 'male'}
+                  onChange={() => setSex('male')}
+                />
+                Male
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="female"
+                  checked={sex === 'female'}
+                  onChange={() => setSex('female')}
+                />
+                Female
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="other"
+                  checked={sex === 'other'}
+                  onChange={() => setSex('other')}
+                />
+                Other
+              </label>
+            </div>
+          </label>
+        </div>
+        <div className="form-row">
+          <label>
+            Age:
+            <input type="number" value={age} onChange={(e) => setAge(e.target.value)} />
+          </label>
+        </div>
+        <div className="form-row">
+          <label>
+            Phone Number:
+            <input type="tel" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
+          </label>
+        </div>
+        <div className="form-row">
+          <label className="inline-label">
+            Appointment Type:
+            <div className="radio-group">
+              <label>
+                <input
+                  type="radio"
+                  value="NEW"
+                  checked={appointmentType === 'NEW'}
+                  onChange={() => setAppointmentType('NEW')}
+                />
+                New Consultation
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="FOLLOWUP"
+                  checked={appointmentType === 'FOLLOWUP'}
+                  onChange={() => setAppointmentType('FOLLOWUP')}
+                />
+                Follow-Up
+              </label>
+            </div>
+          </label>
+        </div>
+        <div className="form-row">
+          <label>
+            Preferred appointment time:
+            <select value={appointmentTime} onChange={(e) => setAppointmentTime(e.target.value)}>
+              <option value="">Select</option>
+              <option value="morning">Morning (8 am - 10 am)</option>
+              <option value="late_morning">Late Morning (10 am - 12 pm)</option>
+              <option value="afternoon">Afternoon (12 pm - 3 pm)</option>
+              <option value="late_afternoon">Late Afternoon (3 pm - 5 pm)</option>
+            </select>
+          </label>
+        </div>
+        <div className="form-row">
+          <button onClick={handleSave}>Book</button>
+          <button onClick={onClose}>Close</button>
+        </div>
       </div>
     </div>
   );
