@@ -1,12 +1,22 @@
-// src/DoctorCard.js
-/**
- * Displays information about each doctor (name, specialization, visitation hours, rating, and image).
- * Includes a "Book Appointment" button.
- */
-import React from 'react';
+import React, { useState } from 'react';
 import './DoctorCard.css';
+import AppointmentModal from './AppointmentModal';
 
 function DoctorCard({ doctor }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleBookAppointment = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleSaveAppointment = (appointmentData) => {
+    console.log('Appointment saved:', appointmentData);
+  };
+
   return (
     <div className="doctor-card">
       <img src={doctor.image} alt={doctor.name} className="doctor-image" />
@@ -21,7 +31,16 @@ function DoctorCard({ doctor }) {
         <p>
           <strong>Rating:</strong> {doctor.rating} ⭐
         </p>
-        <button className="appointment-button">Book Appointment</button>
+        <button className="appointment-button" onClick={handleBookAppointment}>
+          Book Appointment
+        </button>
+        {isModalOpen && (
+          <AppointmentModal
+            doctor={doctor}
+            onClose={handleCloseModal}
+            onSave={handleSaveAppointment}
+          />
+        )}
       </div>
     </div>
   );
