@@ -1,0 +1,30 @@
+/* src/Sidebar.css */
+.sidebar {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+}
+
+.sidebar li:hover {
+  background-color: #e9ecef;
+}
+
+.sidebar li svg {
+  margin-right: 10px;
+}

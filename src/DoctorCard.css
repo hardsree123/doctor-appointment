@@ -1,0 +1,38 @@
+/* src/DoctorCard.css */
+.doctor-card {
+  display: flex;
+  align-items: center; /* Aligns items at the center */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #fff;
+}
+
+.doctor-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  margin-right: 16px;
+  object-fit: cover; /* Ensures the image fits the img tag */
+}
+
+.doctor-info {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Aligns text vertically in the center */
+}
+
+.appointment-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.appointment-button:hover {
+  background-color: #0056b3;
+}
